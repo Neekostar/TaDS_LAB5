@@ -19,7 +19,7 @@ namespace MyGraph {
         static std::string file_name;
     };
 
-} // KVA
+}
 
 #endif //TADS_LAB2_ERRORS_H
 

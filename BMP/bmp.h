@@ -41,7 +41,6 @@ public:
 
     void createRectangle();
     void resizeImage();
-    void info();
 
     /// Масштабирование растрового изображения
     /// @param new_width - ширина, до которой нужно произвести масштабирование

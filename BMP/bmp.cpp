@@ -416,11 +416,3 @@ void BMP::resizeImage() {
     m_data = temp;
 
 }
-
-void BMP::info() {
-    std::cout << "В данный момент открыт файл.\n"
-                 "Разрешение файла составляет: " << m_info_header.width << " x " << m_info_header.height << "\n";
-    std::cout << "Размер структуры файла составляет: " << m_info_header.size << " bytes\n";
-    std::cout << "Размер файла составляет: " << m_file_header.file_size << " bytes\n";
-
-}

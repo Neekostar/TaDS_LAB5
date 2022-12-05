@@ -5,26 +5,25 @@
 #include "Menu/MyMenuItem.h"
 #include "Errors/Errors.h"
 
-#define SIZE_MENU 6
+#define POINTS_OF_MENU 5
 
 using namespace MyGraph;
 
-
-
-std::string load_data_file = "white.bmp";
-std::string write_data_file = "out.bmp";
+std::string load_data_file = "/home/neekostar/CLionProjects/TaDS_LAB5/input.bmp";
+std::string write_data_file = "/home/neekostar/CLionProjects/TaDS_LAB5/result.bmp";
 std::string log_data_file = "Errors.txt";
 
 void rectangle(vector<any> params){
-    auto *bmp = any_cast<BMP*>(params[0]);
-    bmp->fillRegion(0, 0, 500, 500, 255, 0, 0, 0);
+    BMP *bmp = new BMP(1920, 1080, 0);
+//    bmp->save(load_data_file);
+//    bmp->load(load_data_file);
+    uint32_t width = bmp->getWidth();
+    uint32_t x0 = width/2;
+    uint32_t height = bmp->getHeight();
+    uint32_t y0 = height/2;
+    bmp->fillRegion(x0, y0, 50, 100, 255, 0, 0, 0);
+    bmp->save(write_data_file);
     cout<<"Успешно!"<<endl;
-}
-
-void info(vector<any> params) {
-    auto *bmp = any_cast<BMP*>(params[0]);
-    std::cout << "Запущена функция показа информации о файле...\n";
-    bmp->info();
 }
 
 void fills(vector<any> params) {
@@ -78,8 +77,8 @@ void clearCIN() {
 string Errors::file_name = "Errors.txt";
 
 int main(int argc, char *argv[]) {
-    std::string load_data_file = "white.bmp";
-    std::string write_data_file = "out.bmp";
+    std::string load_data_file = "/home/neekostar/CLionProjects/TaDS_LAB5/input.bmp";
+    std::string write_data_file = "/home/neekostar/CLionProjects/TaDS_LAB5/result.bmp";
     std::string log_data_file = "Errors.txt";
     if (argc>=3) {
         load_data_file = argv[1];
@@ -89,15 +88,14 @@ int main(int argc, char *argv[]) {
     MyGraph::Errors::setFileName(log_data_file);
 
     BMP *file = new BMP(load_data_file);
-    MyMenuItem items[SIZE_MENU] = {
-            MyMenuItem("Информация об открытом файле", info),
-            MyMenuItem("Вырезать окружность из открытого файла", rectangle),
-            MyMenuItem("Залить выбранную область цветом", fills),
-            MyMenuItem("Сжать изображение до нужного расширения", scale),
-            MyMenuItem("Сохранить файл", saveFile),
-            MyMenuItem("Выход из программы", exitt)
+    MyMenuItem items[POINTS_OF_MENU] = {
+            MyMenuItem("Нарисовать красный прямоугольник в открытом файле", rectangle),
+            MyMenuItem("Заливка", fills),
+            MyMenuItem("Сжать изображение", scale),
+            MyMenuItem("Сохранить", saveFile),
+            MyMenuItem("Выход", exitt)
     };
-    MyMenu menu("BMP Programm", items, SIZE_MENU);
+    MyMenu menu("BMP", items, POINTS_OF_MENU);
     vector<any> params {file, load_data_file, write_data_file};
     while (true) {
         try {

@@ -1,2 +1,9 @@
 WARNING: The region does not fit in the image! | Mon Dec  5 20:44:22 2022
 WARNING: The region does not fit in the image! | Mon Dec  5 20:44:31 2022
+WARNING: The region does not fit in the image! | Mon Dec  5 21:38:19 2022
+WARNING: The region does not fit in the image! | Mon Dec  5 21:44:14 2022
+WARNING: Unrecognized file format! | Mon Dec  5 21:49:27 2022
+WARNING: Unrecognized file format! | Mon Dec  5 21:49:39 2022
+WARNING: Unrecognized file format! | Mon Dec  5 21:51:28 2022
+WARNING: Unrecognized file format! | Mon Dec  5 21:52:39 2022
+WARNING: Unable to open the input image file! | Mon Dec  5 22:21:33 2022
